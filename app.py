@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 import time
-
+import os
 #页面配置 
 st.set_page_config(
     page_title="计算机网络智能问答助手",
@@ -10,8 +10,11 @@ st.set_page_config(
     initial_sidebar_state="expanded" # 'auto', 'expanded', 'collapsed'
 )
 
-#后端API的URL
-API_URL = "http://127.0.0.1:8000/ask"
+# 后端API的URL
+# 解释：os.getenv 尝试读取环境变量 "API_URL"。
+# 如果在 Docker 里，我们会设置这个变量指向后端容器。
+# 如果在本地直接跑，找不到这个变量，就默认使用 "http://127.0.0.1:8000/ask"
+API_URL = os.getenv("API_URL", "http://127.0.0.1:8000/ask")
 
 #页面标题和介绍
 st.title("🤖 计算机网络智能问答助手")
