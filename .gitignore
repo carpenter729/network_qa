@@ -1,0 +1,22 @@
+# --- Python 基础忽略项 ---
+__pycache__/
+*.pyc
+.venv/
+env/
+venv/
+.idea/
+.vscode/
+
+# --- RAG 项目特定忽略项 (关键!) ---
+# 忽略大模型文件 (因为它们太大了，GitHub传不上去)
+models/*.gguf
+models/*.bin
+
+# 忽略生成的向量数据库 (因为这是运行生成的，不需要版本控制)
+vector_db/
+
+# 忽略系统生成的知识库缓存 (如果有)
+.chroma/
+
+# 忽略敏感信息 (如API Key，虽然目前你没用，但养成习惯)
+.env
