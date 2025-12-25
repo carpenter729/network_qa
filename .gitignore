@@ -1,22 +1,27 @@
-# --- Python 基础忽略项 ---
+# --- Python ---
 __pycache__/
-*.pyc
+*.py[cod]
 .venv/
-env/
 venv/
-.idea/
-.vscode/
-
-# --- RAG 项目特定忽略项 (关键!) ---
-# 忽略大模型文件 (因为它们太大了，GitHub传不上去)
-models/*.gguf
-models/*.bin
-
-# 忽略生成的向量数据库 (因为这是运行生成的，不需要版本控制)
-vector_db/
-
-# 忽略系统生成的知识库缓存 (如果有)
-.chroma/
-
-# 忽略敏感信息 (如API Key，虽然目前你没用，但养成习惯)
+env/
 .env
+
+# --- Node.js (Frontend) ---
+frontend/node_modules/
+frontend/dist/
+frontend/.DS_Store
+
+# --- Large AI Models (关键！不传大模型) ---
+*.gguf
+*.bin
+models/
+
+# --- Vector Database (不传向量库，让别人自己跑脚本生成) ---
+vector_db/
+backend/vector_db/
+sql_app.db
+
+# --- Logs & OS ---
+*.log
+.DS_Store
+Thumbs.db
